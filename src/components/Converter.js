@@ -4,6 +4,8 @@ import { Button, Container, Row, Col, Form, Card, InputGroup } from "react-boots
 const Converter = () =>{
     const [cel, setCel] = useState(0);
     const [far, setFar] = useState(0);
+    const [result, setResult] = useState(); 
+    const [result2, setResult2] = useState(); 
 
     const handleCelChange = (e) =>{
         setCel(e.target.value);
@@ -12,10 +14,10 @@ const Converter = () =>{
         setFar(e.target.value);
     }
     const handleFarConvertion = (e) =>{
-        setFar(+cel*(9/5)+32);
+        setResult(+cel*(9/5)+32);
     }
     const handleCelConvertion = (e) =>{
-        setCel(+far-(32*5)/9);
+        setResult2(+far-(32*5)/9);
     }
     return(
         <>
@@ -29,14 +31,14 @@ const Converter = () =>{
                             <Row>
                             <Col className="mb-3">
                             <InputGroup className="mb-3">
-                                <Form.Control type="text" placeholder="C°" onChange={handleCelChange}/>
-                                <InputGroup.Text className="bg-light" id="basic-addon2">{far}°F</InputGroup.Text>
+                                <Form.Control type="text" placeholder="°C" onChange={handleCelChange}/>
+                                <InputGroup.Text className="bg-light" id="basic-addon2">{result}°F</InputGroup.Text>
                             </InputGroup>
                             </Col>
                             <Col>
                             <InputGroup className="mb-3">
-                                <Form.Control type="text" placeholder="F°" onChange={handleFarChange}/>
-                                <InputGroup.Text className="bg-light" id="basic-addon2">{cel}°C</InputGroup.Text>
+                                <Form.Control type="text" placeholder="°F" onChange={handleFarChange}/>
+                                <InputGroup.Text className="bg-light" id="basic-addon2">{result2}°C</InputGroup.Text>
                             </InputGroup>
                             </Col>
                             </Row>
